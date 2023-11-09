@@ -5,21 +5,36 @@ import list.EstruturaElementar;
 public class ListaLigada implements EstruturaElementar{
 
     private No cabeca;
-
+    private No cauda;
     public ListaLigada() {
 
     }
 
     @Override
     public boolean buscaElemento(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaElemento'");
+        No atual = cabeca;
+        while (atual != null){
+            if (atual.getValor() == valor){
+                return true;
+            }
+            atual = atual.getProximo();
+        }
+        return false;
     }
 
     @Override
     public int buscaIndice(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'buscaIndice'");
+        No atual = cabeca;
+        int indice = 0;
+        while (atual != null){
+            if (atual.getValor() == valor){
+                return indice;
+            }
+            atual = atual.getProximo();
+            indice ++;
+        }
+        return -1;
+
     }
 
     @Override
@@ -60,14 +75,24 @@ public class ListaLigada implements EstruturaElementar{
 
     @Override
     public void insereInicio(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insereInicio'");
+        if (this.cabeca == null) {
+            this.cabeca = new No(valor);}
+        else {
+            No n = new No(valor);
+            n.setProximo(this.cabeca);
+            this.cabeca = n;
+        }
     }
 
     @Override
     public void insereFim(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'insereFim'");
+        if (this.cabeca == null) {
+            this.cabeca = new No(valor);}
+        else {
+            No n = new No(valor);
+            n.setProximo(this.cauda);
+            this.cauda = n;
+        }
     }
 
     @Override

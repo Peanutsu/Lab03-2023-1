@@ -23,6 +23,7 @@ public class AppTest {
     @Test
     public void testInsereInicio() {
         e.insereInicio(0);
+        assertTrue("Não encontrado " + 0, e.buscaElemento(0));
         assertEquals("Não é o primeiro " + 0, e.buscaIndice(0), 0);
         e.insereInicio(1);
         assertEquals("Não é o primeiro " + 1, e.buscaIndice(0), 1);
